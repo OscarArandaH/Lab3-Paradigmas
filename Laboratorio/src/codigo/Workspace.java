@@ -13,6 +13,9 @@ import java.util.ArrayList;
  */
 public class Workspace {
 
+    /**
+     * se define el arreglo que contendra los archivos almacenados en el workspace.
+     */
     private ArrayList<ArchivoTextoPlano> listaArchivosWorkspace;
 
     public Workspace() {
@@ -28,6 +31,9 @@ public class Workspace {
         this.listaArchivosWorkspace = listaArchivosWorkspace;
     }
 
+    /**
+     * Funcion que imprime el workspace por pantalla.
+     */
     public void imprimirWorkspace() {
 
         String nombresArchivos = "";
@@ -43,6 +49,10 @@ public class Workspace {
 
     }
 
+    /**
+     * Funcion que agrega un archivo nuevo al workspace.
+     * @param archivoWorkspace 
+     */
     public void agregarArchivosWorkspace(ArchivoTextoPlano archivoWorkspace) {
 
         Integer i = 0, largo = listaArchivosWorkspace.size();

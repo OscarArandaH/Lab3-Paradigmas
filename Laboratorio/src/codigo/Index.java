@@ -13,6 +13,9 @@ import java.util.ArrayList;
  */
 public class Index {
 
+    /**
+     * se define el arreglo que contendra los cambios almacenados en el index.
+     */
     private ArrayList<ArchivoTextoPlano> listaCambiosIndex;
 
     public Index() {
@@ -20,14 +23,24 @@ public class Index {
         this.listaCambiosIndex = new ArrayList<>();
     }
 
+    /**
+     * @return  la lista con los cambios del index.
+     */
     public ArrayList<ArchivoTextoPlano> getListaCambiosIndex() {
         return listaCambiosIndex;
     }
 
+    /**
+     * Modifica la lista con los cambios del index.
+     * @param listaCambiosIndex lista con los cambios del index.
+     */
     public void setListaCambiosIndex(ArrayList<ArchivoTextoPlano> listaCambiosIndex) {
         this.listaCambiosIndex = listaCambiosIndex;
     }
 
+    /**
+     * Funcion que imprime el index por pantalla.
+     */
     public void imprimirIndex() {
 
         String nombresCambios = "";
@@ -43,6 +56,11 @@ public class Index {
 
     }
 
+    /**
+     * Funcion que agrega un archivo nuevo al workspace.
+     * @param cambiosIndex la lista que contiene los archivos a los cuales se le hicieron cambios.
+     * @param workspace la zona de trabajo workspace.
+     */
     public void agregarCambiosIndex(ArrayList<ArchivoTextoPlano> cambiosIndex, Workspace workspace) {
 
         Integer i = 0, j, largo1 = cambiosIndex.size(), largo2 = listaCambiosIndex.size();
@@ -84,7 +102,4 @@ public class Index {
         }
     }
 
-    void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

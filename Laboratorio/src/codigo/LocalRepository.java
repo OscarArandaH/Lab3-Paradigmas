@@ -13,8 +13,14 @@ import java.util.ArrayList;
  */
 public class LocalRepository {
 
+    /**
+     * se define el arreglo que contendra los commits almacenados en el local.
+     */
     private ArrayList<Commit> listaCommitsLocal;
 
+    /**
+     * 
+     */
     public LocalRepository() {
 
         this.listaCommitsLocal = new ArrayList<>();

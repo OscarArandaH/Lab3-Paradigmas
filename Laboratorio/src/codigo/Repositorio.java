@@ -175,7 +175,7 @@ public class Repositorio {
         } else {
             Commit commit = new Commit(autorRepositorio, indexRepositorio.getListaCambiosIndex());
             localRepositorio.agregarCommitsLocal(commit);
-            indexRepositorio.clear();
+            indexRepositorio.getListaCambiosIndex().clear();
 
         }
     }
