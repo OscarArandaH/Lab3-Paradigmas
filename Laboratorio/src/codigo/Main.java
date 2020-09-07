@@ -5,6 +5,7 @@
  */
 package codigo;
 
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -18,6 +19,8 @@ public class Main {
         Scanner entrada = new Scanner(System.in);
 
         int opcionMenu = 10;
+        String nombre;
+        String autor;
 
         while (opcionMenu != 7) {
 
@@ -32,6 +35,10 @@ public class Main {
             System.out.println("7. Salir.");
             System.out.println("Introduzca una opcion: ");
 
+            
+            Date fechaMod = new Date();
+            System.out.println(fechaMod.toString());
+            
             opcionMenu = entrada.nextInt();
 
             switch (opcionMenu) {
