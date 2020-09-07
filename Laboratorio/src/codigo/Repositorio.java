@@ -221,5 +221,28 @@ public class Repositorio {
 
         }
     }
+    
+    public void gitStatus(){
+        
+        Integer largoWorkspace = workspaceRepositorio.getListaArchivosWorkspace().size();
+        Integer largoIndex = indexRepositorio.getListaCambiosIndex().size();
+        Integer largoLocal = localRepositorio.getListaCommitsLocal().size();
+        
+        
+        System.out.println("Estado Actual del Repositorio:");
+        System.out.println("Nombre del Repositorio: " + nombreRepositorio );
+        System.out.println("Autor del Repositorio: " + autorRepositorio);
+        System.out.println("");
+        System.out.println("Numero de archivos en el Workspace: " + largoWorkspace);
+        System.out.println("Numero de cambios en el Index: " + largoIndex);
+        System.out.println("Numero de commits en el Local Repository: " + largoLocal);
+        
+        if (localRepositorio.getListaCommitsLocal().equals(remoteRepositorio.getListaCommitsRemote())) {
+            
+            System.out.println("El Remote Repository esta al dia.");
+        }else{
+            System.out.println("El Remote Repository esta atrasado");
+        }
+    }
 
 }
