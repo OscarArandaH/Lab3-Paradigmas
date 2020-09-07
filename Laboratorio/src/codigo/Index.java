@@ -60,33 +60,27 @@ public class Index {
             j = 0;
             cambioIndexAux2 = cambiosIndex.get(i);
             if (archivosWorkspace.contains(cambioIndexAux2)) {
-                
-                while(j < largo2 ){
-                    
+
+                while (j < largo2) {
+
                     cambioIndexAux1 = listaCambiosIndex.get(i);
-                    
-                    
-                    
+                    nombreCambio = cambioIndexAux2.getNombreArchivo();
+                    nombreCambioAux = cambioIndexAux1.getNombreArchivo();
+                    if (nombreCambio.equals(nombreCambioAux)) {
+
+                        j = largo2 + 1;
+                        listaCambiosIndex.remove(cambioIndexAux1);
+                        listaCambiosIndex.add(cambioIndexAux2);
+                        break;
+                    }
+                    j++;
                 }
-                
-            }
-            nombreArchivo = cambiosIndex.getNombreArchivo();
-            nombreArchivoAux = archivoWorkspaceAux.getNombreArchivo();
+                if (j.intValue() == largo2.intValue()) {
+                    listaCambiosIndex.add(cambioIndexAux2);
 
-            if (nombreArchivo.equals(nombreArchivoAux)) {
-
-                i = largo + 1;
-                listaCambiosIndex.remove(archivoWorkspaceAux);
-                listaCambiosIndex.add(cambiosIndex);
-                break;
+                }
             }
             i++;
         }
-        if (i.intValue() == largo.intValue()) {
-
-            listaCambiosIndex.add(cambiosIndex);
-
-        }
     }
-
 }

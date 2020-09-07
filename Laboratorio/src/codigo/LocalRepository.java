@@ -28,8 +28,6 @@ public class LocalRepository {
         this.listaCommitsLocal = listaCommitsLocal;
     }
 
-    
-
     public void imprimirLocal() {
 
         Commit commitAuxiliar;
