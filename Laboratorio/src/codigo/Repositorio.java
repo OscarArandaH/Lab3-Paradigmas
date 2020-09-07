@@ -102,7 +102,7 @@ public class Repositorio {
         workspaceRepositorio.agregarArchivosWorkspace(archivoNuevo);
     }
 
-    public void gitAdd()  {
+    public void gitAdd() {
 
         if (workspaceRepositorio.getListaArchivosWorkspace().isEmpty()) {
             System.out.println("El Workspace esta vacio.");
@@ -123,13 +123,15 @@ public class Repositorio {
                 case 1:
                     break;
                 case 2:
-                    int i = 0, j;
+                    int i = 0,
+                     j;
                     Scanner opcionAddCantidadArchivos = new Scanner(System.in);
 
                     System.out.println("Cuantos archivos sufrieron cambios?: ");
                     int cantidadArchivos = opcionAddCantidadArchivos.nextInt();
 
-                    String nombreArchivo,nombreArchivoAux;
+                    String nombreArchivo,
+                     nombreArchivoAux;
 
                     ArrayList<ArchivoTextoPlano> archivosWorkspaceAddAux = workspaceRepositorio.getListaArchivosWorkspace();
                     if (archivosWorkspaceAddAux.size() < cantidadArchivos) {
@@ -145,12 +147,12 @@ public class Repositorio {
                         nombreArchivo = nombreArchivoAdd.nextLine();
                         j = 0;
                         while (j < archivosWorkspaceAddAux.size()) {
-                            
+
                             nombreArchivoAux = archivosWorkspaceAddAux.get(j).getNombreArchivo();
                             if (nombreArchivo.equals(nombreArchivoAux)) {
-                                
+
                                 archivosWorkspaceAdd.add(archivosWorkspaceAddAux.get(j));
-                                
+
                             }
                             j++;
                         }
@@ -164,30 +166,60 @@ public class Repositorio {
             indexRepositorio.agregarCambiosIndex(archivosWorkspaceAdd, workspaceRepositorio);
         }
     }
-    
-    public void gitCommit(){
-        
+
+    public void gitCommit() {
+
         if (indexRepositorio.getListaCambiosIndex().isEmpty()) {
-            
+
             System.out.println("El Index esta vacio.");
-        }else{
+        } else {
             Commit commit = new Commit(autorRepositorio, indexRepositorio.getListaCambiosIndex());
             localRepositorio.agregarCommitsLocal(commit);
             indexRepositorio.clear();
 
         }
     }
-    
-    public void gitPush(){
-        
+
+    public void gitPush() {
+
         if (localRepositorio.getListaCommitsLocal().isEmpty()) {
-            
+
             System.out.println("El Repositorio Local esta vacio.");
-        }else{
+        } else {
             remoteRepositorio.setListaCommitsRemote(localRepositorio.getListaCommitsLocal());
         }
     }
-    
-    
+
+    public void gitPull() {
+
+        if (remoteRepositorio.getListaCommitsRemote().isEmpty()) {
+
+            System.out.println("El Repositorio Remoto esta vacio.");
+        } else {
+
+            Integer i = 0, j, largoAux;
+            ArrayList<Commit> commitsRemoteRepository = remoteRepositorio.getListaCommitsRemote();
+            ArrayList<ArchivoTextoPlano> listaArchivosCommit;
+            ArchivoTextoPlano archivoCommitAux;
+            Integer cantidadCommits = commitsRemoteRepository.size();
+            Commit commit;
+
+            while (i < cantidadCommits) {
+
+                commit = commitsRemoteRepository.get(i);
+                listaArchivosCommit = commit.getCambiosArchivos();
+                largoAux = listaArchivosCommit.size();
+                j = 0;
+                while (j < largoAux) {
+
+                    archivoCommitAux = listaArchivosCommit.get(j);
+                    workspaceRepositorio.agregarArchivosWorkspace(archivoCommitAux);
+                    j++;
+                }
+                i++;
+            }
+
+        }
+    }
 
 }
