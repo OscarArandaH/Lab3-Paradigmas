@@ -102,7 +102,7 @@ public class Repositorio {
         workspaceRepositorio.agregarArchivosWorkspace(archivoNuevo);
     }
 
-    public void gitAdd() {
+    public void gitAdd()  {
 
         if (workspaceRepositorio.getListaArchivosWorkspace().isEmpty()) {
             System.out.println("El Workspace esta vacio.");
@@ -162,6 +162,19 @@ public class Repositorio {
                     break;
             }
             indexRepositorio.agregarCambiosIndex(archivosWorkspaceAdd, workspaceRepositorio);
+        }
+    }
+    
+    public void gitCommit(){
+        
+        if (indexRepositorio.getListaCambiosIndex().isEmpty()) {
+            
+            System.out.println("El Index esta vacio.");
+        }else{
+            Commit commit = new Commit(autorRepositorio, indexRepositorio.getListaCambiosIndex());
+            localRepositorio.agregarCommitsLocal(commit);
+            indexRepositorio.clear();
+
         }
     }
 

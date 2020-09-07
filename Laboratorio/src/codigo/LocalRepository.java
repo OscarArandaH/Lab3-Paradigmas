@@ -48,4 +48,9 @@ public class LocalRepository {
             System.out.println("Archivos del Commit: " + nombresCommits);
         }
     }
+    
+    public void agregarCommitsLocal(Commit cambiosIndex) {
+        
+        listaCommitsLocal.add(cambiosIndex);
+    }
 }
