@@ -5,6 +5,9 @@
  */
 package codigo;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Oscar
@@ -92,13 +95,74 @@ public class Repositorio {
         localRepositorio.imprimirLocal();
         remoteRepositorio.imprimirRemote();
     }
-    
-    public void crearArchivoNuevo(){
-        
+
+    public void crearArchivoNuevo() {
+
         ArchivoTextoPlano archivoNuevo = new ArchivoTextoPlano();
         workspaceRepositorio.agregarArchivosWorkspace(archivoNuevo);
     }
-    
-    
+
+    public void gitAdd() {
+
+        if (workspaceRepositorio.getListaArchivosWorkspace().isEmpty()) {
+            System.out.println("El Workspace esta vacio.");
+        } else {
+            System.out.println("Cuantos archivos sufireron cambios?");
+            System.out.println("1. Todos los Archivos.");
+            System.out.println("2. Seleccionar archivos especificos.");
+
+            Scanner opcionArchivosAdd = new Scanner(System.in);
+
+            System.out.println("Ingrese su opcion: ");
+
+            ArrayList<ArchivoTextoPlano> archivosWorkspaceAdd = new ArrayList<>();
+
+            int opcionArchivosAdd1 = opcionArchivosAdd.nextInt();
+
+            switch (opcionArchivosAdd1) {
+                case 1:
+                    break;
+                case 2:
+                    int i = 0, j;
+                    Scanner opcionAddCantidadArchivos = new Scanner(System.in);
+
+                    System.out.println("Cuantos archivos sufrieron cambios?: ");
+                    int cantidadArchivos = opcionAddCantidadArchivos.nextInt();
+
+                    String nombreArchivo,nombreArchivoAux;
+
+                    ArrayList<ArchivoTextoPlano> archivosWorkspaceAddAux = workspaceRepositorio.getListaArchivosWorkspace();
+                    if (archivosWorkspaceAddAux.size() < cantidadArchivos) {
+
+                        System.out.println("No hay esa cantidad de archivos en el Workspace, hay: " + cantidadArchivos + "Archivos");
+                        break;
+                    }
+
+                    while (i < cantidadArchivos) {
+
+                        System.out.println("Ingrese el nombre del archivo: ");
+                        Scanner nombreArchivoAdd = new Scanner(System.in);
+                        nombreArchivo = nombreArchivoAdd.nextLine();
+                        j = 0;
+                        while (j < archivosWorkspaceAddAux.size()) {
+                            
+                            nombreArchivoAux = archivosWorkspaceAddAux.get(j).getNombreArchivo();
+                            if (nombreArchivo.equals(nombreArchivoAux)) {
+                                
+                                archivosWorkspaceAdd.add(archivosWorkspaceAddAux.get(j));
+                                
+                            }
+                            j++;
+                        }
+                        i++;
+                    }
+                    break;
+                default:
+                    System.out.println("Opcion no disponible.");
+                    break;
+            }
+            indexRepositorio.agregarCambiosIndex(archivosWorkspaceAdd, workspaceRepositorio);
+        }
+    }
 
 }
