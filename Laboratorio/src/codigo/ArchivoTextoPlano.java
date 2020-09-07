@@ -17,20 +17,49 @@ public class ArchivoTextoPlano {
     private String nombreArchivo, fechaModificacion, contenidoArchivo;
 
     public ArchivoTextoPlano() {
-        
+
         Scanner entradaNombreArchivo = new Scanner(System.in);
         System.out.println("Ingrese el nombre del archivo: ");
         String nombreArchivoAux = entradaNombreArchivo.nextLine();
-        
+
         Scanner entradaContenidoArchivo = new Scanner(System.in);
         System.out.println("Ingrese el contenido del archivo: ");
         String contenidoArchivoAux = entradaContenidoArchivo.nextLine();
-        
+
         Date fechaMod = new Date();
         System.out.println(fechaMod.toString());
-        
-        
+        String fechaArchivo = fechaMod.toString();
+
+        this.nombreArchivo = nombreArchivoAux;
+        this.contenidoArchivo = contenidoArchivoAux;
+        this.fechaModificacion = fechaArchivo;
 
     }
+
+    public String getNombreArchivo() {
+        return nombreArchivo;
+    }
+
+    public void setNombreArchivo(String nombreArchivo) {
+        this.nombreArchivo = nombreArchivo;
+    }
+
+    public String getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(String fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
+
+    public String getContenidoArchivo() {
+        return contenidoArchivo;
+    }
+
+    public void setContenidoArchivo(String contenidoArchivo) {
+        this.contenidoArchivo = contenidoArchivo;
+    }
+    
+    
 
 }

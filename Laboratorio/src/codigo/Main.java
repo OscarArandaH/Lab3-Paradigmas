@@ -35,10 +35,7 @@ public class Main {
             System.out.println("7. Salir.");
             System.out.println("Introduzca una opcion: ");
 
-            
-            Date fechaMod = new Date();
-            System.out.println(fechaMod.toString());
-            
+                       
             opcionMenu = entrada.nextInt();
 
             switch (opcionMenu) {
