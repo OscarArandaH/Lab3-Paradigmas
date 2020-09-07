@@ -177,5 +177,17 @@ public class Repositorio {
 
         }
     }
+    
+    public void gitPush(){
+        
+        if (localRepositorio.getListaCommitsLocal().isEmpty()) {
+            
+            System.out.println("El Repositorio Local esta vacio.");
+        }else{
+            remoteRepositorio.setListaCommitsRemote(localRepositorio.getListaCommitsLocal());
+        }
+    }
+    
+    
 
 }
