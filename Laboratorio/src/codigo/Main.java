@@ -16,11 +16,19 @@ public class Main {
 
     public static void main(String args[]) {
 
+        Scanner entradaNombreRepo = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del repositorio: ");
+        String nombreRepositorio = entradaNombreRepo.nextLine();
+        
+        Scanner entradaNombreAutor = new Scanner(System.in);
+        System.out.println("Ingrese su nombre: ");
+        String nombreAutor = entradaNombreAutor.nextLine();
+        
         Scanner entrada = new Scanner(System.in);
+        
+        Repositorio repo = new Repositorio(nombreRepositorio, nombreAutor);
 
         int opcionMenu = 10;
-        String nombre;
-        String autor;
 
         while (opcionMenu != 7) {
 
@@ -40,25 +48,25 @@ public class Main {
 
             switch (opcionMenu) {
                 case 1:
-                    //ADD
+                    repo.gitAdd();
                     break;
                 case 2:
-                    //COMMIT
+                    repo.gitCommit();
                     break;
                 case 3:
-                    //PULL
+                    repo.gitPull();
                     break;
                 case 4:
-                    //PUSH
+                    repo.gitPull();
                     break;
                 case 5:
-                    //STATUS
+                    repo.gitStatus();
                     break;
                 case 6:
-                    //CREAR ARCHIVO
+                    repo.crearArchivoNuevo();
                     break;
                 case 7:
-                    //SALIR
+                    System.out.println("Programa Terminado");
                     break;
             }
         }
