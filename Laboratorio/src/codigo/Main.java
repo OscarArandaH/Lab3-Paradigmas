@@ -14,11 +14,11 @@ public class Main {
          * Se solicita el nomre que tendra el repositorio y el nombre del autor.
          */
         Scanner entradaNombreRepo = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del repositorio: ");
+        System.out.print("Ingrese el nombre del repositorio: ");
         String nombreRepositorio = entradaNombreRepo.nextLine();
 
         Scanner entradaNombreAutor = new Scanner(System.in);
-        System.out.println("Ingrese su nombre: ");
+        System.out.print("Ingrese su nombre: ");
         String nombreAutor = entradaNombreAutor.nextLine();
 
         Scanner entrada = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class Main {
          */
         while (opcionMenu != 7) {
 
-            System.out.println("### SIMULACION DE GIT ###");
+            System.out.println("\n\n### SIMULACION DE GIT ###");
             System.out.println("Opciones:");
             System.out.println("1. Add.");
             System.out.println("2. Commit.");
@@ -41,7 +41,7 @@ public class Main {
             System.out.println("5. Status.");
             System.out.println("6. Crear Archivo.");
             System.out.println("7. Salir.");
-            System.out.println("Introduzca una opcion: ");
+            System.out.print("Introduzca una opcion: ");
 
             opcionMenu = entrada.nextInt();
 
@@ -68,7 +68,7 @@ public class Main {
                     repo.crearArchivoNuevo();
                     break;
                 case 7:
-                    System.out.println("Programa Terminado");
+                    System.out.println("\nPrograma Terminado\n");
                     break;
             }
         }

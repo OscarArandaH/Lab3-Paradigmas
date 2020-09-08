@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codigo;
 
 import java.util.ArrayList;
@@ -18,22 +13,29 @@ public class LocalRepository {
      */
     private ArrayList<Commit> listaCommitsLocal;
 
-    /**
-     * 
-     */
     public LocalRepository() {
 
         this.listaCommitsLocal = new ArrayList<>();
     }
 
+    /**
+     * @return obtiene la lista con los commits del local repository.
+     */
     public ArrayList<Commit> getListaCommitsLocal() {
         return listaCommitsLocal;
     }
 
+    /**
+     * Modifica la lista con los commits del local repository.
+     * @param listaCommitsLocal lista que contiene los commits del local repository
+     */
     public void setListaCommitsLocal(ArrayList<Commit> listaCommitsLocal) {
         this.listaCommitsLocal = listaCommitsLocal;
     }
 
+    /**
+     * Funcion que imprime el local repository por pantalla.
+     */
     public void imprimirLocal() {
 
         Commit commitAuxiliar;
@@ -55,6 +57,12 @@ public class LocalRepository {
         }
     }
     
+    
+    
+    /**
+     * Funcion que agrega  un commit al repositorio local
+     * @param cambiosIndex la lista que contiene los commits del index.
+     */
     public void agregarCommitsLocal(Commit cambiosIndex) {
         
         listaCommitsLocal.add(cambiosIndex);

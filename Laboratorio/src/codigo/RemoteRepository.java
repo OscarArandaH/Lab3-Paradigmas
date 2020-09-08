@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codigo;
 
 import java.util.ArrayList;
@@ -13,6 +8,9 @@ import java.util.ArrayList;
  */
 public class RemoteRepository {
     
+    /**
+     * se define el arreglo que contendra los commits almacenados en el remote.
+     */
     private ArrayList<Commit> listaCommitsRemote;
 
     public RemoteRepository() {
@@ -20,14 +18,24 @@ public class RemoteRepository {
         this.listaCommitsRemote = new ArrayList<>();
     }
 
+    /**
+     * @return obtiene la lista con los commits del remote repository.
+     */
     public ArrayList<Commit> getListaCommitsRemote() {
         return listaCommitsRemote;
     }
 
+    /**
+     * Modifica la lista con los commits del local repository. 
+     * @param listaCommitsRemote lista que contiene los commits del remote repository
+     */
     public void setListaCommitsRemote(ArrayList<Commit> listaCommitsRemote) {
         this.listaCommitsRemote = listaCommitsRemote;
     }
 
+    /**
+     * Funcion que imprime el remote repository por pantalla.
+     */
     public void imprimirRemote() {
 
         Commit commitAuxiliar;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codigo;
 
 import java.util.Scanner;
@@ -32,7 +27,7 @@ public class Commit {
          * Se solicita el mensaje descriptivo que tendra el commit.
          */
         Scanner entradaMensajeDescriptivo = new Scanner(System.in);
-        System.out.println("Ingrese el mensaje descriptivo del commit: ");
+        System.out.print("Ingrese el mensaje descriptivo del commit: ");
         String mensajeDescriptivoAux = entradaMensajeDescriptivo.nextLine();
 
         Date fechaMod = new Date();

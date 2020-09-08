@@ -14,6 +14,9 @@ import java.util.Scanner;
  */
 public class Repositorio {
 
+    /**
+     * se establecen los parametros que tendra el commit.
+     */
     private String nombreRepositorio, autorRepositorio, ramaRepositorio;
     private Workspace workspaceRepositorio;
     private Index indexRepositorio;
@@ -32,62 +35,114 @@ public class Repositorio {
         this.remoteRepositorio = new RemoteRepository();
     }
 
+    /**
+     * @return el nombre del repositorio.
+     */
     public String getNombreRepositorio() {
         return nombreRepositorio;
     }
 
+    /**
+     * Modifica elnombre del repositorio.
+     * @param nombreRepositorio 
+     */
     public void setNombreRepositorio(String nombreRepositorio) {
         this.nombreRepositorio = nombreRepositorio;
     }
 
+    /**
+     * @return el nombre del autor del repositorio.
+     */
     public String getAutorRepositorio() {
         return autorRepositorio;
     }
 
+    /**
+     * Modifica el nombre del autor del repositorio.
+     * @param autorRepositorio 
+     */
     public void setAutorRepositorio(String autorRepositorio) {
         this.autorRepositorio = autorRepositorio;
     }
 
+    /**
+     * @return la rama del repositorio.
+     */
     public String getRamaRepositorio() {
         return ramaRepositorio;
     }
 
+    /**
+     * Modifica el la rama del repositorio.
+     * @param ramaRepositorio 
+     */
     public void setRamaRepositorio(String ramaRepositorio) {
         this.ramaRepositorio = ramaRepositorio;
     }
 
+    /**
+     * @return el workspace del repositorio.
+     */
     public Workspace getWorkspaceRepositorio() {
         return workspaceRepositorio;
     }
 
+    /**
+     * Modifica el workspace del repositorio.
+     * @param workspaceRepositorio 
+     */
     public void setWorkspaceRepositorio(Workspace workspaceRepositorio) {
         this.workspaceRepositorio = workspaceRepositorio;
     }
 
+    /**
+     * @return el index del repositorio.
+     */
     public Index getIndexRepositorio() {
         return indexRepositorio;
     }
 
+    /**
+     * Modifica el index del repositorio.
+     * @param indexRepositorio 
+     */
     public void setIndexRepositorio(Index indexRepositorio) {
         this.indexRepositorio = indexRepositorio;
     }
 
+    /**
+     * @return el local del repositorio.
+     */
     public LocalRepository getLocalRepositorio() {
         return localRepositorio;
     }
 
+    /**
+     * Modifica el local del repositorio.
+     * @param localRepositorio 
+     */
     public void setLocalRepositorio(LocalRepository localRepositorio) {
         this.localRepositorio = localRepositorio;
     }
 
+    /**
+     * @return el remote del repositorio.
+     */
     public RemoteRepository getRemoteRepositorio() {
         return remoteRepositorio;
     }
 
+    /**
+     * Modifica el remote del repositorio.
+     * @param remoteRepositorio 
+     */
     public void setRemoteRepositorio(RemoteRepository remoteRepositorio) {
         this.remoteRepositorio = remoteRepositorio;
     }
 
+    /**
+     * Funcion que imprime el repositorio por pantalla.
+     */
     public void imprimirRepositorio() {
 
         workspaceRepositorio.imprimirWorkspace();
@@ -96,12 +151,18 @@ public class Repositorio {
         remoteRepositorio.imprimirRemote();
     }
 
+    /**
+     * funcion que crea un nuevo archivo en el workspace.
+     */
     public void crearArchivoNuevo() {
 
         ArchivoTextoPlano archivoNuevo = new ArchivoTextoPlano();
         workspaceRepositorio.agregarArchivosWorkspace(archivoNuevo);
     }
 
+    /**
+     * Metodo que guarda los cambios del workspace en el index.
+     */
     public void gitAdd() {
 
         if (workspaceRepositorio.getListaArchivosWorkspace().isEmpty()) {
@@ -167,6 +228,9 @@ public class Repositorio {
         }
     }
 
+    /**
+     * metodo que crea un commit con los cambios almacenados en el index.
+     */
     public void gitCommit() {
 
         if (indexRepositorio.getListaCambiosIndex().isEmpty()) {
@@ -180,6 +244,9 @@ public class Repositorio {
         }
     }
 
+    /**
+     * Metodo que mueve los commits del repositorio local al repositorio remoto.
+     */
     public void gitPush() {
 
         if (localRepositorio.getListaCommitsLocal().isEmpty()) {
@@ -190,6 +257,9 @@ public class Repositorio {
         }
     }
 
+    /**
+     * Metodo que trae los archivos desde el repositorio remoto al workspace.
+     */
     public void gitPull() {
 
         if (remoteRepositorio.getListaCommitsRemote().isEmpty()) {
@@ -222,6 +292,9 @@ public class Repositorio {
         }
     }
     
+    /**
+     * Metodo que muestra informacion del repositorio.
+     */
     public void gitStatus(){
         
         Integer largoWorkspace = workspaceRepositorio.getListaArchivosWorkspace().size();
