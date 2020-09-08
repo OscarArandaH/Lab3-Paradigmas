@@ -31,7 +31,6 @@ public class Commit {
         String mensajeDescriptivoAux = entradaMensajeDescriptivo.nextLine();
 
         Date fechaMod = new Date();
-        System.out.println(fechaMod.toString());
         String fechaCommit = fechaMod.toString();
 
         this.autorCommit = autorCommit;

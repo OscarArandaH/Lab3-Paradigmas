@@ -141,17 +141,6 @@ public class Repositorio {
     }
 
     /**
-     * Funcion que imprime el repositorio por pantalla.
-     */
-    public void imprimirRepositorio() {
-
-        workspaceRepositorio.imprimirWorkspace();
-        indexRepositorio.imprimirIndex();
-        localRepositorio.imprimirLocal();
-        remoteRepositorio.imprimirRemote();
-    }
-
-    /**
      * funcion que crea un nuevo archivo en el workspace.
      */
     public void crearArchivoNuevo() {

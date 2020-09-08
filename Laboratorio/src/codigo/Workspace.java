@@ -27,24 +27,6 @@ public class Workspace {
     }
 
     /**
-     * Funcion que imprime el workspace por pantalla.
-     */
-    public void imprimirWorkspace() {
-
-        String nombresArchivos = "";
-
-        for (int i = 0; i < listaArchivosWorkspace.size(); i++) {
-
-            nombresArchivos = nombresArchivos + listaArchivosWorkspace.get(i).getNombreArchivo();
-            nombresArchivos = nombresArchivos + "//";
-
-        }
-        System.out.println("Archivos del Workspace: ");
-        System.out.println(nombresArchivos);
-
-    }
-
-    /**
      * Funcion que agrega un archivo nuevo al workspace.
      * @param archivoWorkspace 
      */

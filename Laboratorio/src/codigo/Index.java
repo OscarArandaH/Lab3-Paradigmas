@@ -33,24 +33,7 @@ public class Index {
         this.listaCambiosIndex = listaCambiosIndex;
     }
 
-    /**
-     * Funcion que imprime el index por pantalla.
-     */
-    public void imprimirIndex() {
-
-        String nombresCambios = "";
-
-        for (int i = 0; i < listaCambiosIndex.size(); i++) {
-
-            nombresCambios = nombresCambios + listaCambiosIndex.get(i).getNombreArchivo();
-            nombresCambios = nombresCambios + "//";
-
-        }
-        System.out.println("Cambios del Index: ");
-        System.out.println(nombresCambios);
-
-    }
-
+   
     /**
      * Funcion que agrega un archivo nuevo al workspace.
      * @param cambiosIndex la lista que contiene los archivos a los cuales se le hicieron cambios.

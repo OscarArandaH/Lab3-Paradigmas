@@ -33,29 +33,4 @@ public class RemoteRepository {
         this.listaCommitsRemote = listaCommitsRemote;
     }
 
-    /**
-     * Funcion que imprime el remote repository por pantalla.
-     */
-    public void imprimirRemote() {
-
-        Commit commitAuxiliar;
-        ArrayList<ArchivoTextoPlano> listaArchivosCommit;
-        String nombresCommits = "";
-        System.out.println("Commits Almacenados en el Remote Repository: ");
-
-        for (int i = 0; i < listaCommitsRemote.size(); i++) {
-            commitAuxiliar = listaCommitsRemote.get(i);
-            System.out.println("Mensaje Descriptivo del Commit: " + commitAuxiliar.getMensajeDescriptivo());
-            listaArchivosCommit = commitAuxiliar.getCambiosArchivos();
-
-            for (int j = 0; j < listaCommitsRemote.size(); j++) {
-
-                nombresCommits = nombresCommits + listaCommitsRemote.get(i).getMensajeDescriptivo();
-                nombresCommits = nombresCommits + "//";
-            }
-            System.out.println("Archivos del Commit: " + nombresCommits);
-        }
-    }
-    
-    
 }
